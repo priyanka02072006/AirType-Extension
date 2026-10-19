@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "AirType – Hand Keyboard",
+  "version": "1.0.0",
+  "description": "Type on any page with your hand in the air. Click the icon (or Alt+Shift+K) to open a camera-driven on-screen keyboard. Works in dark rooms.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "AirType: toggle hand keyboard (Alt+Shift+K)",
+    "default_icon": { "16": "icons/16.png", "32": "icons/32.png", "48": "icons/48.png" }
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+K" },
+      "description": "Toggle AirType hand keyboard"
+    }
+  },
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "web_accessible_resources": [
+    {
+      "resources": ["panel.html", "panel.css", "panel.js", "lib/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

@@ -1,0 +1,50 @@
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; background: transparent; overflow: hidden; }
+body { font: 600 12px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif; color: #e8f1ff; user-select: none; }
+
+.app { height: 100%; display: flex; flex-direction: column; background: #0a0e13; border: 1px solid #22303f; border-radius: 14px; overflow: hidden; }
+
+#bar { height: 36px; flex: none; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 12px; background: #121a23; cursor: grab; touch-action: none; }
+#bar:active { cursor: grabbing; }
+.logo { font-size: 13px; letter-spacing: .02em; color: #9fb4c8; }
+.logo b { color: #7cf5c4; }
+#status { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #8da2b6; font-weight: 500; padding-left: 6px; }
+#status.warn { color: #ffb86b; }
+#status.err { color: #ff7b7b; }
+#status.ok { color: #7cf5c4; }
+#boost { width: 64px; accent-color: #7cf5c4; }
+#bar button { height: 24px; padding: 0 8px; border-radius: 7px; border: 1px solid #2c3d4f; background: #1a2530; color: #dbe8f5; font: inherit; cursor: pointer; }
+#bar button:hover { background: #243342; }
+
+#stage { position: relative; flex: 1; min-height: 0; background: #05080b; }
+#view { position: absolute; inset: 0; width: 100%; height: 100%; transform: scaleX(-1); opacity: .55; }
+#fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+#kb { position: absolute; inset: 0; padding: 7px; display: flex; flex-direction: column; gap: 6px; }
+.row { flex: 1; display: flex; gap: 6px; min-height: 0; }
+.key {
+  position: relative; overflow: hidden; display: grid; place-items: center;
+  border-radius: 10px; background: rgba(16, 24, 34, .66); border: 1px solid rgba(255, 255, 255, .16);
+  font-size: clamp(15px, 3vw, 24px); font-weight: 600; color: #f3f8ff;
+  transition: transform .06s, background .06s;
+}
+.key.on { border-color: #7cf5c4; color: #7cf5c4; }
+.key.hover { background: rgba(124, 245, 196, .34); border-color: #7cf5c4; transform: scale(1.05); z-index: 1; }
+.key.down { background: #7cf5c4; color: #04150d; }
+.key::after { content: ""; position: absolute; left: 0; bottom: 0; height: 5px; width: calc(var(--dwell, 0) * 100%); background: #7cf5c4; }
+
+#camErr { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; text-align: center; padding: 20px; background: rgba(5, 8, 11, .92); z-index: 5; }
+#camErr[hidden] { display: none; }
+#camErr button { padding: 8px 16px; border-radius: 9px; border: 0; background: #7cf5c4; color: #04150d; font: 700 13px system-ui; cursor: pointer; }
+
+/* Dark-room mode: the screen itself becomes the light source for your hands */
+body.light .app { background: #fffdf4; border-color: #fff; box-shadow: 0 0 40px 8px rgba(255, 250, 225, .55); }
+body.light #bar { background: #f1efe3; }
+body.light .logo, body.light #status { color: #5a5846; }
+body.light #bar button { background: #fff; border-color: #cfcab0; color: #222; }
+body.light #stage { background: #fffdf4; }
+body.light #view { opacity: .4; }
+body.light .key { background: rgba(255, 255, 255, .78); border-color: rgba(0, 0, 0, .25); color: #111; }
+body.light .key.hover { background: rgba(30, 200, 140, .45); border-color: #0a7a52; }
+body.light .key.down { background: #0fb27c; color: #fff; }
+body.light .key.on { color: #0a7a52; border-color: #0a7a52; }

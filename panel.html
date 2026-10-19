@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AirType</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div class="app">
+    <header id="bar">
+      <span class="logo">Air<b>Type</b></span>
+      <span id="status">Starting…</span>
+      <input id="boost" type="range" min="0.6" max="2" step="0.1" value="1" title="Camera brightness boost">
+      <button id="bDark" title="Dark-room mode: bright screen as a fill light + auto brightness">🌙 Auto</button>
+      <button id="bMode" title="Pinch to press, or hold your fingertip on a key (dwell)">Pinch</button>
+      <button id="bSize" title="Panel size">⇔</button>
+      <button id="bClose" title="Close (camera turns off)">✕</button>
+    </header>
+    <main id="stage">
+      <canvas id="view"></canvas>
+      <div id="kb"></div>
+      <canvas id="fx"></canvas>
+      <div id="camErr" hidden>
+        <p id="camErrMsg"></p>
+        <button id="bAllow">Allow camera</button>
+      </div>
+    </main>
+  </div>
+  <video id="video" playsinline muted hidden></video>
+  <script src="lib/hands.js"></script>
+  <script src="panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AirType setup</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; background: #0a0e13; color: #e8f1ff; display: grid; place-items: center; min-height: 100vh; margin: 0; }
+    main { max-width: 520px; padding: 32px; text-align: center; }
+    h1 b { color: #7cf5c4; }
+    #msg { margin: 18px 0; font-weight: 600; }
+    button { padding: 10px 20px; border-radius: 10px; border: 0; background: #7cf5c4; color: #04150d; font: 700 15px system-ui; cursor: pointer; }
+    ol { text-align: left; color: #9fb4c8; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Air<b>Type</b> setup</h1>
+    <p>AirType needs your camera once. Press <b>Allow</b> in the browser prompt. The video never leaves your computer.</p>
+    <p id="msg">Waiting for permission…</p>
+    <button id="retry">Ask again</button>
+    <ol>
+      <li>Open any page (e.g. google.com) and click the AirType icon, or press Alt+Shift+K.</li>
+      <li>Click a text box, then point and pinch thumb + index finger to type.</li>
+    </ol>
+  </main>
+  <script src="setup.js"></script>
+</body>
+</html>
